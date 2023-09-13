@@ -1,4 +1,4 @@
-import { Github, FileVideo, Upload , Wand } from 'lucide-react'
+import { Github, Wand } from 'lucide-react'
 import { Button } from "./components/ui/button";
 import { Separator } from './components/ui/separator';
 import { Textarea } from './components/ui/textarea';
@@ -6,8 +6,14 @@ import { Label } from './components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './components/ui/select';
 import { Slider } from './components/ui/slider';
 import { VideoInputForm } from './components/video-input-form';
+import { PromptSelect } from './components/prompt-select';
 
 export function App() {
+  function handlePromptSelected(template: string) {
+    console.log(template);
+    
+  }
+
   return (
     <div className='min-h-screen flex flex-col'>
       <div className="px-6 py-3 flex items-center justify-between border-b">
@@ -48,15 +54,8 @@ export function App() {
           <form className='space-y-6'>
             <div className='space-y-2'>
                 <Label>Prompt</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder='Select a prompt'/>
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value='title'>Youtube Title</SelectItem>
-                    <SelectItem value='description'>Youtube Description</SelectItem>
-                  </SelectContent>
-                </Select>
+                
+                <PromptSelect onPromptSelected={handlePromptSelected}/>
 
                 <span className='block text-sm text-muted-foreground italic'>
                   You'll be able to customize this option soon

@@ -145,7 +145,7 @@ export function VideoInputForm() {
 
       <Button 
         data-success={status === 'success'}
-        disabled={status !== 'waiting' || status !== 'success'}
+        disabled={status !== 'waiting'}
         type='submit'
         className='w-full data-[success=true]:bg-emerald-900'>
         {status === 'waiting' ? (
